@@ -235,7 +235,7 @@ small {
   overflow: hidden;
   transition: all 0.6s ease-in-out;
   padding: 6px 0;
-
+  height: 26vh;
 }
 
 #certBox {
@@ -289,4 +289,119 @@ small {
 
 .certificateCont:hover h3{
   color: #C69749;
+}
+
+#contactForm{
+  margin: 4vh 0;
+}
+#contacthead {
+  margin: 12px 0;
+}
+#contactForm input,textarea{
+  width: 100%;
+  height: 32px;
+  font-size: 1.2rem;
+   text-align: justify;
+  padding: 5px;
+  margin: 2px 0 32px 0;
+  border-radius: 8px;
+  border-color: #C69749;
+  background: transparent;
+  border-style: groove;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+#contactForm label{
+  margin: 0 0 2px 5px;
+  font-size: 1.2rem;
+}
+#sendForm{
+  display: flex;
+  justify-content: center;
+}
+#submit{
+  width: 40%;
+  background: #C69749;
+  border-radius: 12px;
+  height: 42px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  letter-spacing: 6px;
+  border-color: #C69749;
+  
+}
+
+textarea{
+  height: initial;
+}
+textarea:focus, input:focus{
+  outline: none;
+
+}
+
+#warn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  border-radius: 26px;
+  border: 3px solid #C69749;
+  color: orangered;
+  font-weight: 800;
+  padding: 0 10px;
+  background: #191919;
+  place-self: center;
+  
+}
+
+.warnBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 4vh;
+  right: 0;
+  width: 100vw;
+  z-index: 5;
+  animation: popup 0.5s ease-in-out forwards;
+}
+
+#succesfull{
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+align-items: center;
+  height: 40vh;
+  animation: popup 1s ease-in-out forwards;
+}
+#succesfull h2{
+  color: #C69749;
+}
+#succesfull i{
+font-size: 10rem;
+height: 10rem;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #C69749;
+ }
+
+
+@keyframes popup {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

@@ -94,13 +94,13 @@ let qualification = document.getElementById('qualification');
 let about = document.getElementById('about');
 let portfolio = document.getElementById('portfolio');
 let certificates = document.getElementById('certificates');
-let contact = document.getElementById('contact');
+let contact = document.getElementById('contacts');
 
 let info = document.getElementById('homepage2');
 let qualiBox = document.getElementById('qualiBox');
 let certBox = document.getElementById('certBox');
-
-
+let contactBox = document.getElementById('contactBox');
+let portfolioBox = document.getElementById('portfolioBox');
 //change color on click on nav items-----------------
 about.style.color = "#C69749";
 
@@ -131,7 +131,11 @@ let showQualification = () => {
   certBox.classList.add('hide');
   qualiBox.classList.add('show');
   qualiBox.classList.add('glitch');
-
+  qualiBox.classList.remove('hide');
+  contactBox.classList.add('hide');
+  contactBox.classList.remove('show')
+  portfolioBox.classList.remove('show');
+  portfolioBox.classList.add('hide');
 };
 
 let showAbout = () => {
@@ -140,8 +144,13 @@ let showAbout = () => {
   certBox.classList.remove('show');
   certBox.classList.add('hide');
   info.classList.add('show');
-  info.classList.add('glitch');
+  info.classList.remove('hide');
 
+  info.classList.add('glitch');
+  contactBox.classList.add('hide');
+  contactBox.classList.remove('show')
+  portfolioBox.classList.remove('show');
+  portfolioBox.classList.add('hide');
 };
 
 let showCertificates = () => {
@@ -151,14 +160,99 @@ let showCertificates = () => {
   info.classList.add('hide');
   certBox.classList.add('show');
   certBox.classList.add('glitch');
+  certBox.classList.remove('hide');
 
+  contactBox.classList.add('hide');
+  contactBox.classList.remove('show')
+  portfolioBox.classList.remove('show');
+  portfolioBox.classList.add('hide');
 };
 
+let showContactForm = () => {
+  qualiBox.classList.remove('show');
+  qualiBox.classList.add('hide');
+  info.classList.remove('show');
+  info.classList.add('hide');
+  certBox.classList.add('hide');
+  certBox.classList.remove('show');
+  contactBox.classList.remove('hide')
+
+  contactBox.classList.add('show');
+  
+  portfolioBox.classList.remove('show');
+  portfolioBox.classList.add('hide');
+};
+
+
+let showPortfolio = () => {
+  qualiBox.classList.remove('show');
+  qualiBox.classList.add('hide');
+  info.classList.remove('show');
+  info.classList.add('hide');
+  certBox.classList.add('hide');
+  certBox.classList.remove('show');
+  contactBox.classList.add('hide')
+  contactBox.classList.remove('show');
+  portfolioBox.classList.add('glitch');
+  portfolioBox.classList.add('show');
+  portfolioBox.classList.remove('hide');
+}
 
 qualification.addEventListener('click', showQualification);
 about.addEventListener('click', showAbout);
 certificates.addEventListener('click', showCertificates);
 
+contact.addEventListener('click', showContactForm);
+portfolio.addEventListener('click', showPortfolio);
 
-let certificateBox = document.querySelectorAll('.certificateCont');
+
+
+let warnBox = document.getElementById('warning');
+
+let sendBtn = document.getElementById('submit');
+let form = document.getElementById('contactForm');
+let success = document.getElementById('successfull');
+
+function showWarning() {
+  var warningElement = document.getElementById('warning');
+
+  // Remove the 'hide' class
+  warningElement.classList.remove('hide');
+
+  // After 2 seconds, add the 'hide' class back
+  setTimeout(function() {
+    warningElement.classList.add('hide');
+  }, 2000);
+}
+
+
+const Contact = () => {
+  return (
+    
+      <div className="hide" id="succesfull">
+     <i className="fa-solid fa-envelope-circle-check fa-2xl"></i>
+     <h2>Sent Successfully !</h2>
+   </div>
+  
+  );
+};
+
+function checkInputs() {
+  var input1 = document.getElementById('name').value;
+  var input2 = document.getElementById('mail').value;
+
+  if (input1 !== '' && input2 !== '') {
+
+
+    ReactDOM.render(<Contact />, document.getElementById('contactForm')); // Assuming 'root' is the ID of the main div in your HTML file
+    console.log('Button clicked!');
+  } else {
+    showWarning();
+    console.log('fill all the fields');
+  }
+}
+
+
+sendBtn.addEventListener('click', checkInputs);
+
 

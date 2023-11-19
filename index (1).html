@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/transition-style">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+  <style type="text/css" media="all">
+    @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
+
+    * {
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    body {
+      background: black;
+      box-sizing: border-box;
+      padding: 16px;
+
+      color: #ffffff;
+      margin: 0 0 8vh 0;
+
+    }
+
+    #footNav {
+      z-index: 1;
+      width: calc(100% - 4vw);
+      height: 8vh;
+      max-height: 15vh;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      position: fixed;
+      bottom: 0;
+      font-size: 1.5vh;
+      padding: 0 2vw;
+      background: rgba(40, 42, 58, 0.45);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-top-left-radius: 5vw;
+      border-top-right-radius: 5vw;
+
+    }
+
+    #footNav p {
+      color: white;
+
+      border-bottom: 3px solid transparent;
+      text-align: center;
+    }
+
+
+
+    #main-intro img {
+      border-radius: 50%;
+
+      border: 5px solid #C69749;
+    }
+
+    #main-intro {
+
+      padding: 8vh 0 0 0;
+      margin: 5vh 0;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #homepage {
+      padding: 0 6vw;
+    }
+
+    #rootHead {
+      display: flex;
+
+    }
+
+    #root h2 {
+      color: #C69749;
+      border-bottom: 3px solid #C69749;
+    }
+
+
+    #main-intro,
+    #homepage,
+    .universalBox {
+
+
+      border: 2px solid #735F32;
+      border-radius: 25px;
+      background: rgba(40, 42, 58, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+    }
+
+    #mainTitle {
+      display: flex;
+    }
+
+    #mainDesc p {
+      word-spacing: 5px;
+      
+    }
+
+    .bold {
+      font-weight: bolder;
+    }
+
+    .mainTitle {
+      color: #C69749;
+      border-bottom: 3px solid #C69749;
+    }
+
+    #main-intro h1 {
+      color: #C69749;
+    }
+
+    .universalBox {
+      margin: 5vh 0 0 0;
+      padding: 0 6vw;
+    }
+
+    #main-intro h4,
+    #social {
+      background: rgba(40, 42, 58, 0.45);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: inline-block;
+      padding: 10px;
+      border-radius: 25px;
+    }
+
+    #info {
+      text-align: center;
+
+    }
+
+    #social a {
+      color: #ffffff;
+      margin: 0 5px;
+    }
+
+
+    #footbox {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+    }
+
+    #fullDetails {
+      border-top: 2px solid #C69749;
+      border-bottom: 2px solid #C69749;
+      margin: 1vh 0;
+
+    }
+
+    .fullDetailsBox {
+
+      box-shadow: 10px 10px 20px #000000;
+      background: #191919;
+      border-radius: 12px;
+      border-top: 1px solid #C69749;
+      border-left: 1px solid #C69749;
+
+      padding: 0 12px 0 0;
+      margin: 2vh 0;
+    }
+
+    .fullDetailsBox div div {
+      text-align: start;
+      display: block;
+    }
+
+    .fullDetailsBox div {
+      display: flex;
+      align-items: baseline;
+
+    }
+
+    .fullDetailsBox div i {
+      place-self: center;
+      padding: 0 20px;
+      color: #C69749;
+
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .Title {
+      color: #88898EEB;
+      align-self: flex-start;
+      padding-bottom: 0;
+      margin-bottom: 8px;
+
+
+    }
+
+    .TitleInfo {
+
+      font-weight: 800;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    #about {
+      color: #C69749;
+    }
+  .hide{
+    display: none;
+  }
+
+
+    .overrides {
+
+      --transition__duration: 0.8s;
+      /* default: 2.5s */
+      --transition__easing: ease-in;
+      /* default: cubic-bezier(.25, 1, .30, 1) */
+      --transition__delay: 0.2s;
+      /* default: 0 */
+    }
+
+    /* desktop styles */
+    @media (min-width: 768px) {
+
+      /* Your CSS styles for screens larger than mobiles or tablets go here */
+      body {
+        padding: 10vw 15vw;
+
+
+      }
+
+      #footNav {
+        z-index: 1000;
+        width: calc(100% - 15vw);
+
+      }
+
+      #fullDetails {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 1vh 0;
+      }
+
+      .fullDetailsBox {
+        width: 40%;
+        margin: 1vh 0;
+      }
+
+      .timeline::after {
+        margin-left: -2.5vw;
+      }
+
+      .container {
+        margin: 1vh 0 1vh 0vw;
+
+      }
+
+      .text-box {
+        padding: 1vw;
+        font-size: 1.5vw;
+      }
+
+      .progressBar {
+        height: 0.8vh;
+      }
+
+      #skillsetBox {
+
+        padding: 2.5vw;
+        font-size: 1.8vw;
+        box-shadow: 10px 10px 20px #000000;
+        border-radius: 25px;
+      }
+
+      .certificateCont img {
+        height: 13vh;
+      }
+      #mainDesc p{
+        font-size: 0.6rem;
+      }
+      #warn{
+        width: 20%;
+      padding: 0 10px;
+      }
+      .warnBox{
+        top: 6vh;
+      }
+      #succesfull{
+        height: 20vh;
+      }
+
+    }
+
+    /* End of desktop styles*/
+  </style>
+
+  <title>Shivani Kumari</title>
+
+  <!-- React -->
+  <script src="//unpkg.com/systemjs@0.19.47/dist/system.js"></script>
+
+</head>
+
+<body>
+
+  <!--Navigation bar-->
+  <div id="footbox">
+    <nav id="footNav">
+      <p class="active home" id="about">About</p>
+      <p class="active" id="qualification">Qualification</p>
+      <p class="active" id="portfolio">Portfolio</p>
+      <p class="active" id="certificates">Certificates</p>
+      <p class="active" id="contacts">Contact</p>
+    </nav>
+  </div>
+
+  <!--Intro section-->
+  <div id="main-intro">
+    <img width="40%" src="user.png" alt="shivani">
+    <div id="info">
+      <h1>Shivani Kumari</h1>
+
+      <!--Expandable div react-->
+      <div id="expandInfo">
+
+      </div>
+      <h4>Part-time Freelancer</h4>
+      <br>
+
+
+      <!--Social media nav-->
+      <div id="social">
+        <a href="https://www.facebook.com/profile.php?id=100090688729093"><i class="fa-brands fa-square-facebook fa-sm"></i></a>
+        <a href="https://www.linkedin.com/in/shivani-kumari-70435721a"><i class="fa-brands fa-linkedin-in fa-sm"></i></a>
+        <a href="https://instagram.com/shiviikiran?utm_source=qr&igshid=OGU0MmVlOWVjOQ=="><i class="fa-brands fa-instagram fa-sm"></i></a>
+        <a href="mailto:shivisingh75059@gmail.com"><i class="fa-regular fa-envelope fa-sm"></i></a>
+      </div>
+    </div>
+    <br><br>
+  </div>
+  <div id="root">
+
+  </div>
+  <!--More Details section React-->
+  <div class="show" id="homepage2">
+    <div id="homepage">
+      <div>
+        <div id="mainTitle">
+          <h2 class="mainTitle">About Me</h2>
+        </div>
+        <div id="mainDesc">
+          <p>
+            Hello, I'm <span class="bold" style="color : #C69749;">Shivani</span>, a seasoned freelancer with a passion for delivering exceptional services. With 3 years of experience, I've honed my skills to provide top-notch solutions. My commitment to client satisfaction, attention to detail, and dedication to meeting deadlines sets me apart.
+            <br><br>
+            With a solid foundation in web development and a diverse range of technical skills, I bring a unique blend of expertise to the table. My proficiency extends beyond coding; I am also an effective communicator and a natural leader, capable of uniting teams to achieve shared objectives.<br><br>Furthermore, my skill set includes Product Management, Fundraising, and Digital Marketing, which sets me apart and positions me as a valuable asset to any organization. I am confident in my ability to contribute meaningfully and drive success.<br><br>I am eager to collaborate and make a significant impact. Let's connect to explore potential opportunities for us to work together.
+          </p>
+        </div>
+
+        <!--What i am doing-->
+      </div>
+    </div>
+  </div>
+
+  <!--Qualifications-->
+
+  <div id="qualiBox" class="universalBox hide">
+    <div id="mainTitle">
+      <h2 class="mainTitle">Qualifications</h2>
+    </div>
+    <div class="superSubDiv">
+      <div class="superIcon">
+        <i class="fa-solid fa-book-open fa-lg"></i>
+      </div>
+      <div class="superHeading">
+        <h3>Education</h3>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="container">
+        <div class="text-box">
+          <h4>Gurukul kangri University</h4>
+          <small>2020 - 2022</small><br><br>
+          <p>Completed the <span style="color : #C69749;">M.sc </span>with the sgpa of 8.67 and was a good student during the whole course.</p>
+        </div>
+      </div>
+
+
+
+      <div class="container">
+        <div class="text-box">
+          <h4>HNB University</h4>
+          <small>2017 - 2019</small><br><br>
+          <p>Completed the <span style="color : #C69749;">B.sc </span>with the sgpa of 5.6 and was a good student during the whole course.</p>
+        </div>
+      </div>
+
+
+
+      <div class="container">
+        <div class="text-box">
+          <h4>CBSE Board</h4>
+          <small>2015 - 2016</small><br><br>
+          <p>Completed the Secondary education of <span style="color : #C69749;">class XII</span> with the Score of 60% with the winning of other class competitions.</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="text-box">
+          <h4>CBSE Board</h4>
+          <small>2013 - 2014</small><br><br>
+          <p>Completed the Secondary education of <span style="color : #C69749;">class X</span> with the Score of 78% with the winning of other class competitions.</p>
+        </div>
+      </div>
+    </div>
+    <!--interns-->
+    <br>
+
+    <div class="superSubDiv">
+      <div class="superIcon">
+        <i class="fa-solid fa-display fa-lg"></i>
+      </div>
+      <div class="superHeading">
+        <h3>interns</h3>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="container">
+        <div class="text-box">
+          <h4>Gurukul kangri University</h4>
+          <small>2020 - 2022</small><br><br>
+          <p>Completed the <span style="color : #C69749;">M.sc </span>with the sgpa of 8.67 and was a good student during the whole course.</p>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="text-box">
+          <h4>CBSE Board</h4>
+          <small>2013 - 2014</small><br><br>
+          <p>Completed the Secondary education of <span style="color : #C69749;">class X</span> with the Score of 78% with the winning of other class competitions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!--SkillSet-->
+    <div id="skillset">
+      <h2 style="color: #C69749;">My Skills</h2>
+
+      <div id="skillsetBox">
+
+        <div class="skill">
+          <div class="skillTitle">
+            <b>Skill 1 :</b>
+            <p>80%</p>
+          </div>
+          <div class="progressBar">
+            <div style="width: 80%;" class="progress">
+            </div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skillTitle">
+            <b>Skill 2 :</b>
+            <p>40%</p>
+          </div>
+          <div class="progressBar">
+            <div style="width: 40%;" class="progress">
+            </div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skillTitle">
+            <b>Skill 3 :</b>
+            <p>60%</p>
+          </div>
+          <div class="progressBar">
+            <div style="width: 60%;" class="progress">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--   Certificates    -->
+  <div id="certBox" class="universalBox hide">
+    <div class="titleBox">
+      <h2 class="mainTitle">Certificates</h2>
+    </div>
+    <div class="certificateCont">
+      <div class="certImg">
+        <img src="./certificate-basics-of-web-development-certificate.jpg" alt="./certificates">
+      </div>
+      <div>
+        <p>Masai International ● oct,2022</p>
+      </div>
+
+      <div>
+        <h3 class="certHead">Basics of Web Development</h3>
+        <p>This program of masai International.Which consist the learning of basic HTML,CSS,JS and React.I completed this whole program and also did many projects as well.</p>
+      </div>
+      <div>
+      </div>
+    </div>
+
+    <div class="certificateCont">
+      <div class="certImg">
+        <img src="./certificate-figma-for-developers-6316ecbfd20e54437_231118_072347.jpg" alt="./certificates">
+      </div>
+      <div>
+        <p>Masai International ● Nov,2022</p>
+      </div>
+      <div>
+        <h3 class="certHead">Basics of Figma Design</h3>
+        <p></p>
+      </div>
+      <div>
+      </div>
+    </div>
+
+    <div class="certificateCont">
+      <div class="certImg">
+        <img src="./certificate_of_complition_shivani___231118_072420.jpg" alt="./certificates">
+      </div>
+      <div>
+        <p>SCOA Academy ● Nov,2022</p>
+      </div>
+      <div>
+        <h3 class="certHead">Basics of Web Development</h3>
+        <p></p>
+      </div>
+      <div>
+      </div>
+    </div>
+
+
+    <div class="certificateCont">
+      <div class="certImg">
+        <img src="./IFORTIS WORLDWIDE _231118_072319.jpg" alt="./certificates">
+      </div>
+      <div>
+        <p>IFORTIS International ● April,2023</p>
+      </div>
+      <div>
+        <h3 class="certHead">Basics of Web Development</h3>
+        <p></p>
+      </div>
+      <div>
+      </div>
+    </div>
+
+    <div class="certificateCont">
+      <div class="certImg">
+        <img src="./12-19-16- 5948046 - LSP Certificate_231118_072444.jpg" alt="./certificates">
+      </div>
+      <div>
+        <p>Masai International ● 1 jan,2021</p>
+      </div>
+      <div>
+        <h3 class="certHead">Basics of Web Development</h3>
+        <p></p>
+      </div>
+      <div>
+      </div>
+    </div>
+
+    <div class="certificateCont">
+      <div class="certImg">
+        <img src="../Student Participation Certificate_Shivani_231118_072302.jpg" alt="./certificates">
+      </div>
+      <div>
+        <p>Masai International ● 1 jan,2021</p>
+      </div>
+      <div>
+        <h3 class="certHead">Basics of Web Development</h3>
+        <p> </p>
+      </div>
+      </div>
+      </div>
+    
+    
+      <div id="portfolioBox" class="universalBox hide">
+        <h1>Nothing to see here...</h1>
+        
+</div>
+    
+    
+     <div id="warning" class="warnBox hide">
+  <div  id="warn">
+    <i class="fa-solid fa-circle-exclamation fa-lg"></i>
+    <p>Please fill all the fields.</p>
+  </div>
+  </div>
+
+  <div id="contactBox" class="universalBox hide">
+    
+    <div id="contacthead">
+      <h2 class="mainTitle">Contact Us</h2>
+    </div>
+   
+  
+   
+   
+    <div id="contactForm">
+      <label for="name">Enter your name :</label>
+      <input required type="text" name="name" id="name">
+      <label for="name">Enter your E-mail :</label>
+      <input required type="text" name="mail" id="mail">
+
+      <label for="name">Tell us your thoughts..</label>
+      <textarea name="desc" id=desc rows="8" cols="50"></textarea>
+      <div id="sendForm">
+        <button id="submit">SEND</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  </div>
+
+  <!-- fonts script -->
+  <script src="https://kit.fontawesome.com/15526767ae.js" crossorigin="anonymous"></script>
+
+  <script src="config.js"></script>
+</body>
+
+</html>
